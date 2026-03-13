@@ -9,12 +9,12 @@ public class Pessoa {
 
     //Métodos
     public void apresentar() {
-        System.out.println("Olá, meu nome é " + this.nome + " e tenho " + this.idade + "anos. ");
+        System.out.println("Olá, meu nome é " + this.nome + " e tenho " + this.idade + " anos. ");
     }
 
     public void fazerAniversario() {
         this.idade++; //incrementa a idade
-        System.out.println("Feliz aniversario, " + this.nome + "! Agora você tem " + this.idade + "anos.");
+        System.out.println("Feliz aniversario, " + this.nome + "! Agora você tem " + this.idade + " anos.");
     }
 
     public void atualizarEmail(String novoEmail) {
