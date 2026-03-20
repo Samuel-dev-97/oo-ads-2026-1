@@ -1,12 +1,8 @@
-
 import java.util.Date;
-
 
 public class Funcionario extends Pessoa {
 
-
    public static Double taxaComissao = 10.0;
-
 
    // Atributos
    public String matricula;
@@ -14,7 +10,8 @@ public class Funcionario extends Pessoa {
    public Double salarioBase;
    public String departamento;
    public Date dataAdmissao;
-    // Método construtor
+
+    // ERRO CORRIGIDO ABAIXO: Removido o "Date dataAdmissao" da lista de parâmetros
     public Funcionario(
               String nome,
               Integer idade,
@@ -24,26 +21,25 @@ public class Funcionario extends Pessoa {
               String matricula,
               String cargo,
               Double salarioBase,
-              String departamento,
-              Date dataAdmissao
-
+              String departamento
     ) {
-        // Chamando o construtor da classe pai (Pessoa) para inicializar os atributos herdados
+        // Chamando o construtor da classe pai (Pessoa)
         super(nome, idade, cpf, email, telefone);
-        //Armazenando os valores dos atributos específicos de Funcionario
+        
+        // Armazenando os valores
         this.matricula = matricula;
         this.cargo = cargo;
         this.salarioBase = salarioBase;
         this.departamento = departamento;
+        
+        // A data é gerada aqui automaticamente, por isso não precisa estar lá em cima
         this.dataAdmissao = new Date();
     }
 
-
-   // Métodos
+   // Métodos (Mantidos exatamente como os seus)
    public Double calcularSalario() {
        return this.salarioBase * (1 + (taxaComissao / 100));
    }
-
 
    public void aumentarSalarioBase(Double percentual) {
        if(percentual == null || percentual <= 0) {
@@ -53,14 +49,12 @@ public class Funcionario extends Pessoa {
        System.out.println("Salário base atualizado para R$ " + this.salarioBase);
    }
 
-
    public void registrarPonto() {
        System.out.println("Ponto registrado para " + this.nome +
                "\nMatrícula: " + this.matricula +
                "\nData/hora:" + new Date()
        );
    }
-
 
    @Override
    public String exibirDados() {
@@ -73,5 +67,3 @@ public class Funcionario extends Pessoa {
                "\nData de admissão: " + this.dataAdmissao;
    }
 }
-
-

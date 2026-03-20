@@ -10,7 +10,7 @@ public class Main {
 
     public static void teste01() {
         // Criação do primeiro objeto de pessoa
-        pessoa pessoa1 = new pessoa(
+        Pessoa pessoa1 = new Pessoa(
                 "Gervásio Gomes Garcia",
                 54,
                 "123.456.789-01",
@@ -66,22 +66,23 @@ public class Main {
                 "F0123",
                 "Assistente Financeiro",
                 3500.00,
-                "Gerência Financeira"
+                "Gerência Financeira"   
         );
+
 
         // Dando valor aos atributos do funcionário
         // (inclui atributos herdados de Pessoa)
-        func1.nome = "Veneranda Vieira";
-        func1.idade = 26;
-        func1.cpf = "987.654.321-09";
-        func1.email = "veneranda@empresa.com.br";
-        func1.telefone = "(36) 91234-5678";
+        //func1.nome = "Veneranda Vieira";
+        //func1.idade = 26;
+        //func1.cpf = "987.654.321-09";
+        //func1.email = "veneranda@empresa.com.br";
+        //func1.telefone = "(36) 91234-5678";
         //----//
-        func1.matricula = "F0123";
-        func1.cargo = "Assistente Financeiro";
-        func1.salarioBase = 3500.00;
-        func1.departamento = "Gerência Financeira";
-        func1.dataAdmissao = new Date();
+        //func1.matricula = "F0123";
+        //func1.cargo = "Assistente Financeiro";
+        //func1.salarioBase = 3500.00;
+        //func1.departamento = "Gerência Financeira";
+       //func1.dataAdmissao = new Date();
 
         // Exibindo os dados do funcionário
         System.out.println(func1.exibirDados());
