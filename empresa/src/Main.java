@@ -1,62 +1,34 @@
 import java.util.Date;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
+
     public static void main(String[] args) {
-        teste01();
-        teste02();
+        
+        //teste01();
+        //teste02();
+        //teste03();
+        prova01();
     }
 
     public static void teste01() {
-        // Criação do primeiro objeto de pessoa
+        /*
         Pessoa pessoa1 = new Pessoa(
                 "Gervásio Gomes Garcia",
                 54,
                 "123.456.789-01",
                 "gervasio.garcia@empresa.com.br",
                 "(16) 98765-4321"
+            "Gervásio Gomes Garcia",
+            54,
+            "123.456.789-01",
+            "gervasio.garcia@empresa.com.br",
+            "(16) 98765-4321"
         );
 
-        // Atribuindo valores aos atributos
-//        pessoa1.nome = "Gervásio Gomes Garcia";
-//        pessoa1.idade = 54;
-//        pessoa1.cpf = "123.456.789-01";
-//        pessoa1.email = "gervasio.garcia@empresa.com.br";
-//        pessoa1.telefone = "(16) 98765-4321";
-
-        // Chamando o método para exibir os dados da pessoa 1
         System.out.println(pessoa1.exibirDados());
+@@ -24,41 +25,91 @@ public static void teste01() {
+        System.out.println("-".repeat(80));
 
-        System.out.println("-".repeat(80));  // Traço separador
-
-        pessoa1.fazerAniversario();
-
-        // Chamando a apresentação da pessoa, que reflete a nova idade
-        pessoa1.apresentar();
-
-        System.out.println("-".repeat(80));  // Traço separador
-
-        // Atualizando o e-mail
-        pessoa1.atualizarEmail("ggarcia@outlook.com");
-
-        System.out.println("-".repeat(80));  // Traço separador
-
-        // Exibindo novamente os dados para conferir as alterações feitas
-        System.out.println(pessoa1.exibirDados());
-
-        // Alterando novamente o e-mail por meio de manipulação direta
-        // do valor do atributo
-        pessoa1.email = "garcia.gervasio@bol.com.br";
-
-        System.out.println("-".repeat(80));  // Traço separador
-
-        // Exibindo novamente os dados para conferir as alterações feitas
-        System.out.println(pessoa1.exibirDados());
-
-        System.out.println("*".repeat(80));
-
-        // Vamos criar o primeiro objeto da classe Funcionario
         Funcionario func1 = new Funcionario(
                 "Veneranda Vieira",
                 26,
@@ -66,51 +38,126 @@ public class Main {
                 "F0123",
                 "Assistente Financeiro",
                 3500.00,
-                "Gerência Financeira"   
+                "Gerência Financeira"
+            "Veneranda Vieira",
+            26,
+            "987.654.321-09",
+            "veneranda@empresa.com.br",
+            "(36) 91234-5678",
+            "F0123",
+            "Assistente Financeiro",
+            3500.00,
+            "Gerência Financeira"
         );
 
-
-        // Dando valor aos atributos do funcionário
-        // (inclui atributos herdados de Pessoa)
-        //func1.nome = "Veneranda Vieira";
-        //func1.idade = 26;
-        //func1.cpf = "987.654.321-09";
-        //func1.email = "veneranda@empresa.com.br";
-        //func1.telefone = "(36) 91234-5678";
-        //----//
-        //func1.matricula = "F0123";
-        //func1.cargo = "Assistente Financeiro";
-        //func1.salarioBase = 3500.00;
-        //func1.departamento = "Gerência Financeira";
-       //func1.dataAdmissao = new Date();
-
-        // Exibindo os dados do funcionário
         System.out.println(func1.exibirDados());
-
         System.out.println("-".repeat(80));
 
-        func1.fazerAniversario();
-
-        // Exibindo os dados novamente para verificar mudança de idade
-        System.out.println(func1.exibirDados());
-
-        System.out.println("-".repeat(80));
-
-        // Calculando o salário de Veneranda
         Double salarioFinal = func1.calcularSalario();
         System.out.println("O salário final de Veneranda é R$ " + salarioFinal);
+        */
     }
 
     public static void teste02() {
+        
+        System.out.println("\nExecutando Teste 02...\n");
+        // System.out.println("\nExecutando Teste 02...\n");
+    }
+    /*public static void teste03() {
+       System.out.println("\n" + "=".repeat(20) + " EXERCÍCIO CONTA BANCÁRIA " + "=".repeat(20));
 
-//        System.out.println("%".repeat(80));
-//
-//        Pessoa p = new Pessoa();
-//        System.out.println("Exibindo dados de uma pessoa...");
-//        System.out.println(p.exibirDados());
-//
-//        Funcionario f = new Funcionario();
-//        System.out.println("Exibindo dados de um funcionário...");
-//        System.out.println(f.exibirDados());
+        // Criando o objeto da conta
+        ContaBancaria conta = new ContaBancaria("AJAX", 1000.0);
+        System.out.println("\n" + "=".repeat(20) + " CONTAS  " + "=".repeat(20));
+
+        // Executando os comandos solicitados no exercício
+        /*
+        ContaBancaria conta = new ContaBancaria("AJAX", 1120.0);
+        conta.exibirSaldo();
+        conta.depositar(200.0);
+        conta.exibirSaldo();
+        conta.sacar(500.0);
+        conta.depositar(209.0);
+        conta.exibirSaldo();
+        conta.sacar(575.0);
+        conta.exibirSaldo();
+
+        ContaBancaria c1 = new ContaBancaria("Assuel", 1000.0);
+        ContaBancaria c2 = new ContaBancaria("Bruna", 500.0);
+        ContaBancaria c3 = new ContaBancaria("Carlão", 50.0);
+
+        // 2. Realizando saques e depósitos
+        System.out.println("\n--- Movimentações ---");
+        c1.depositar(250.0);
+        c1.sacar(100.0);
+        c2.sacar(600.0);
+        c2.depositar(150.0);
+        c3.depositar(1000.0);
+        c3.sacar(200.0);
+
+        // 3. Exibindo o saldo final
+        c1.exibirSaldo();
+        c2.exibirSaldo();
+        c3.exibirSaldo(); 
+
+        // --- TRÊS CONTAS ESPECIAIS ---
+
+        // 1. contas especiais (Titular, Saldo Inicial, Limite)
+        ContaEspecial ce1 = new ContaEspecial("Hobbes", 1000.0, 500.0);
+        ContaEspecial ce2 = new ContaEspecial("Assis", 2000.0, 1000.0);
+        ContaEspecial ce3 = new ContaEspecial("Nicolau", 500.0, 2000.0);
+
+        // 2. Realizando saques e depósitos
+        System.out.println("\n--- Movimentações (Especiais) ---");
+        ce1.depositar(300.0);
+        ce1.sacar(150.0);
+
+        ce2.sacar(500.0);
+        ce2.depositar(100.0);
+
+        ce3.depositar(1000.0);
+        ce3.sacar(200.0);
+
+        // 3. Exibindo Saldos Real e com Limite
+        System.out.println("\n--- Resultados Finais ---");
+
+        System.out.println("[Conta 01]");
+        ce1.exibirSaldoReal();
+        ce1.exibirSaldo();
+
+        System.out.println("\n[Conta 02]");
+        ce2.exibirSaldoReal();
+        ce2.exibirSaldo();
+
+        System.out.println("\n[Conta 03]");
+        ce3.exibirSaldoReal();
+        ce3.exibirSaldo();
+    }*/
+    public static void prova01() {
+
+        Estudante e1 = new Estudante("Ana Silva", 20, "111", "ana@email.com", "9999-1111", "ADS");
+        e1.nota1 = 7.0;
+        e1.nota2 = 8.0;
+
+        Estudante e2 = new Estudante("Bruno Souza", 22, "222", "bruno@email.com", "9999-2222", "DSM");
+        e2.nota1 = 5.0;
+        e2.nota2 = 6.0;
+
+        Estudante e3 = new Estudante("Carla Lima", 19, "333", "carla@email.com", "9999-3333", "ADS");
+        e3.nota1 = 4.0;
+        e3.nota2 = 5.0;
+
+        Estudante e4 = new Estudante("Samuel Pereira de Souza", 29, "444", "seu@email.com", "9999-4444", "ADS");
+        e4.nota1 = 9.0;
+        e4.nota2 = 10.0;
+
+        System.out.println(e1.exibirDados());
+        System.out.println("----------------------");
+        System.out.println(e2.exibirDados());
+        System.out.println("----------------------");
+        System.out.println(e3.exibirDados());
+        System.out.println("----------------------");
+        System.out.println(e4.exibirDados());
     }
 }
+
