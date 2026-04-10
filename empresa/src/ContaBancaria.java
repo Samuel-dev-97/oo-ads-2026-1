@@ -1,6 +1,7 @@
 public class ContaBancaria {
 
     // Atributos
+    //Protected: apena a própria classe e seus decendentes têm acesso.
     public Double saldo;
     public String titular;
 

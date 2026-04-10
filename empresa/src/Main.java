@@ -7,7 +7,8 @@ public class Main {
         //teste01();
         //teste02();
         //teste03();
-        prova01();
+        //prova01();
+        teste04();
     }
 
     public static void teste01() {
@@ -159,5 +160,12 @@ public class Main {
         System.out.println("----------------------");
         System.out.println(e4.exibirDados());
     }
-}
+    public static void teste04() {
+    
+        ContaBancaria c1 = new ContaBancaria("Zezinho Santos", 500.00);
+        c1.exibirSaldo();
 
+        c1.sacar(350.00);
+        c1.exibirSaldo();
+    }
+}
