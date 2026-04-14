@@ -4,10 +4,12 @@ public class ContaBancaria {
     //Protected: apena a própria classe e seus decendentes têm acesso.
     public Double saldo;
     public String titular;
+    public Integer numConta; 
 
     // Construtor
-    public ContaBancaria(String titular, Double saldoInicial) {
+    public ContaBancaria(String titular, Integer numConta, Double saldoInicial) {
         this.titular = titular;
+        this.numConta = numConta;
         this.saldo = saldoInicial;
     }
 

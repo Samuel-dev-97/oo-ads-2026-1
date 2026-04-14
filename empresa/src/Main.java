@@ -162,7 +162,7 @@ public class Main {
     }
     public static void teste04() {
     
-        ContaBancaria c1 = new ContaBancaria("Zezinho Santos", 500.00);
+        ContaBancaria c1 = new ContaBancaria("Zezinho Santos", 12345, 500.00);
         c1.exibirSaldo();
 
         c1.sacar(350.00);

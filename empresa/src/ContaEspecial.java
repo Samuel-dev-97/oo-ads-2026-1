@@ -2,9 +2,9 @@ public class ContaEspecial extends ContaBancaria {
     public Double limite;
 
     //construtor personalizado
-    public ContaEspecial(String titular, Double saldoInicial, Double limite) {
+    public ContaEspecial(String titular, Integer numConta, Double saldoInicial, Double limite) {
 
-        super(titular, saldoInicial);
+        super(titular, numConta, saldoInicial);
         this.limite = limite;
     }
 
