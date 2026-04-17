@@ -1,24 +1,50 @@
 public class ContaEspecial extends ContaBancaria {
-    public Double limite;
+    private Double limite;
 
     //construtor personalizado
-    public ContaEspecial(String titular, Integer numConta, Double saldoInicial, Double limite) {
+    public ContaEspecial(
+            Integer numConta,
+            String titular,
+            Double saldoInicial,
+            Double limite 
+    ){
 
-        super(titular, numConta, saldoInicial);
-        this.limite = limite;
+        super(numConta, titular, saldoInicial);
+        this.setLimite(limite);
+    }
+
+    // Getter e setter
+    public Double getLimite() {
+        return this.limite;
+    }
+
+    public void setLimite(Double novoLimite) {
+        if(novoLimite <= 0) {
+            throw new IllegalArgumentException("O limite deve ser maior que zero.");
+        }
+        this.limite = novoLimite;
     }
 
     @Override
     public void exibirSaldo() {
 
-        Double saldoComLimite = this.saldo + this.limite;
-
-        System.out.println("Titular: " + this.titular + " | Saldo + Limite: R$ " + saldoComLimite);
+              String msg = "Saldo da conta ESPECIAL nº %d de %s é R$ %.2f".formatted(
+                this.getNumConta(),
+                this.getTitular(),
+                this.getSaldo() + this.getLimite()
+        );
+        System.out.println(msg);
     }
+      
     public void exibirSaldoReal() {
-
-        System.out.println("Titular: " + this.titular + " | Saldo Real (sem limite): R$ " + this.saldo);
-
+        String msg = "Saldo (real) da conta ESPECIAL nº %d de %s é R$ %.2f".formatted(
+        this.getNumConta(),
+        this.getTitular(),
+        this.getSaldo()
+      );
+        System.out.println(msg);
+         
     }
-
 }
+    
+

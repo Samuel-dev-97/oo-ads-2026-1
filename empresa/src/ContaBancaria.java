@@ -2,37 +2,69 @@ public class ContaBancaria {
 
     // Atributos
     //Protected: apena a própria classe e seus decendentes têm acesso.
-    public Double saldo;
-    public String titular;
-    public Integer numConta; 
+    private Integer numConta;
+    private String titular;
+    private Double saldo = 0.0; 
 
     // Construtor
-    public ContaBancaria(String titular, Integer numConta, Double saldoInicial) {
-        this.titular = titular;
-        this.numConta = numConta;
-        this.saldo = saldoInicial;
+    public ContaBancaria(Integer numConta, String titular, Double saldoInicial) {
+        //this.numConta = numConta;
+        this.setNumConta(numConta);
+        this.setTitular(titular);
+        //this.saldo = saldoInicial;
+        // Chama depositar() para ajustar o saldo inicial da conta,
+        // passando pela validação existente no método
+        this.depositar(saldoInicial);
     }
 
-    // Método para depositar
+   //Getters/setters
+   
+    public Integer getNumConta() {
+        return this.numConta;
+    }
+
+    public void setNumConta(Integer novoNumConta) {
+        if(novoNumConta <= 0) {
+            throw new IllegalArgumentException("O número da conta deve ser maior que zero.");
+        }
+        this.numConta = novoNumConta;
+    }
+  public String getTitular() {
+        return this.titular;
+    }
+
+    public void setTitular(String novoTitular) {
+        // Este é um exemplo de setter sem validações
+        this.titular = novoTitular;
+    }
+
+    // O atributo saldo terá apenas o getter para podermos
+    // consultar o seu valor. As modificações do seu valor
+    // deverão ser feitas pelos métodos depositar() e sacar()
+    public Double getSaldo() {
+        return this.saldo;
+    }
+    
+    // Métodos
     public void depositar(Double quantia) {
-        if (quantia > 0) {
-            this.saldo += quantia;
-            System.out.println("Depósito de R$ " + quantia + " realizado.");
+        if(quantia <= 0) {
+            throw new IllegalArgumentException("Valor de depósito deve ser positivo.");
         }
+        this.saldo += quantia;
+        System.out.println("O valor R$ " + quantia + " foi depositado.");
     }
 
-    // Método para sacar
     public void sacar(Double quantia) {
-        if (quantia > 0 && quantia <= this.saldo) {
-            this.saldo -= quantia;
-            System.out.println("Saque de R$ " + quantia + " realizado.");
-        } else {
-            System.out.println("Saldo insuficiente ou quantia inválida.");
+        if(quantia > this.saldo) {
+            throw new IllegalArgumentException("Saldo insuficiente para realizar o saque.");
         }
+        this.saldo -= quantia;
+        System.out.println("O valor R$ " + quantia + " foi sacado.");
     }
 
-    // Método para exibir o saldo
     public void exibirSaldo() {
-        System.out.println("Titular: " + this.titular + " | Saldo atual: R$ " + this.saldo);
+        
+        String msg = "Saldo da conta bancária nº %d de %s é R$ %.2f".formatted(this.numConta, this.titular, this.saldo);
+        System.out.println(msg);
     }
 }
