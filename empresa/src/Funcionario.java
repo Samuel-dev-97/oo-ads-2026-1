@@ -2,16 +2,16 @@ import java.util.Date;
 
 public class Funcionario extends Pessoa {
 
-   public static Double taxaComissao = 10.0;
+   private static Double taxaComissao = 10.0;
 
    // Atributos
-   public String matricula;
-   public String cargo;
-   public Double salarioBase;
-   public String departamento;
-   public Date dataAdmissao;
+   private String matricula;
+   private String cargo;
+   private Double salarioBase;
+   private String departamento;
+   private Date dataAdmissao;
 
-    // ERRO CORRIGIDO ABAIXO: Removido o "Date dataAdmissao" da lista de parâmetros
+
     public Funcionario(
               String nome,
               Integer idade,
@@ -26,32 +26,32 @@ public class Funcionario extends Pessoa {
         // Chamando o construtor da classe pai (Pessoa)
         super(nome, idade, cpf, email, telefone);
         
-        // Armazenando os valores
-        this.matricula = matricula;
-        this.cargo = cargo;
-        this.salarioBase = salarioBase;
-        this.departamento = departamento;
+        // Armazenando os valores via setters para manter o padrão de encapsulamento
+        this.setMatricula(matricula);
+        this.setCargo(cargo);
+        this.setSalarioBase(salarioBase);
+        this.setDepartamento(departamento);
         
         // A data é gerada aqui automaticamente, por isso não precisa estar lá em cima
-        this.dataAdmissao = new Date();
+        this.setDataAdmissao(new Date());
     }
 
-   // Métodos (Mantidos exatamente como os seus)
+   // Métodos 
    public Double calcularSalario() {
-       return this.salarioBase * (1 + (taxaComissao / 100));
+       return this.getSalarioBase() * (1 + (getTaxaComissao() / 100));
    }
 
    public void aumentarSalarioBase(Double percentual) {
        if(percentual == null || percentual <= 0) {
            throw new IllegalArgumentException("O percentual de aumento deve ser positivo.");
        }
-       this.salarioBase = this.salarioBase * (1 + (percentual / 100));
-       System.out.println("Salário base atualizado para R$ " + this.salarioBase);
+       this.setSalarioBase(this.getSalarioBase() * (1 + (percentual / 100)));
+       System.out.println("Salário base atualizado para R$ " + this.getSalarioBase());
    }
 
    public void registrarPonto() {
-       System.out.println("Ponto registrado para " + this.nome +
-               "\nMatrícula: " + this.matricula +
+       System.out.println("Ponto registrado para " + this.getNome() +
+               "\nMatrícula: " + this.getMatricula() +
                "\nData/hora:" + new Date()
        );
    }
@@ -60,10 +60,58 @@ public class Funcionario extends Pessoa {
    public String exibirDados() {
        String dadosPessoa = super.exibirDados();
        return dadosPessoa +
-               "\nMatricula: " + this.matricula +
-               "\nCargo: " + this.cargo +
-               "\nSalário base: R$ " + this.salarioBase +
-               "\nDepartamento: " + this.departamento +
-               "\nData de admissão: " + this.dataAdmissao;
+               "\nMatricula: " + this.getMatricula() +
+               "\nCargo: " + this.getCargo() +
+               "\nSalário base: R$ " + this.getSalarioBase() +
+               "\nDepartamento: " + this.getDepartamento() +
+               "\nData de admissão: " + this.getDataAdmissao();
+   }
+   // GETTERS e   SETTERS
+   public static Double getTaxaComissao() {
+    return taxaComissao;
+   }
+
+   public static void setTaxaComissao(Double taxaComissao) {
+    Funcionario.taxaComissao = taxaComissao;
+   }
+
+   public String getMatricula() {
+    return matricula;
+   }
+
+   public void setMatricula(String matricula) {
+    this.matricula = matricula;
+   }
+
+   public String getCargo() {
+    return cargo;
+   }
+
+   public void setCargo(String cargo) {
+    this.cargo = cargo;
+   }
+
+   public Double getSalarioBase() {
+    return salarioBase;
+   }
+   
+   public void setSalarioBase(Double salarioBase) {
+    this.salarioBase = salarioBase;
+   }
+
+   public String getDepartamento() {
+    return departamento;
+   }
+
+   public void setDepartamento(String departamento) {
+    this.departamento = departamento;
+   }
+
+   public Date getDataAdmissao() {
+    return dataAdmissao == null ? null : new Date(dataAdmissao.getTime());
+   }
+
+   public void setDataAdmissao(Date dataAdmissao) {
+    this.dataAdmissao = dataAdmissao == null ? null : new Date(dataAdmissao.getTime());
    }
 }
